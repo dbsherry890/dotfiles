@@ -1,0 +1,20 @@
+[color]
+	ui = true
+[user]
+	name = Daniel B Sherry
+	email = dbsherry890@gmail.com
+[push]
+	default = simple
+[credential]
+	helper = cache --timeout=604800
+[http]
+	postBuffer = 157286400
+[init]
+	defaultBranch = main
+[alias]
+	st = status
+  cfg = "!f() { nvim ~/.gitconfig; }; f"
+  ac = "!f() { git add . && git commit -m; }; f"
+  km = "!f() { git config --list | grep alias; }; f"
+  gr = "!f() { git log --graph --decorate --oneline; }; f"
+

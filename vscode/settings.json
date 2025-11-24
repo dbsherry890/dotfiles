@@ -1,0 +1,405 @@
+// good example repo: https://github.com/Ritek/VSCodeVim/blob/master/settings.json
+{
+  "telemetry.telemetryLevel": "off",
+  "update.showReleaseNotes": false,
+  "vim.leader": "<space>",
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.duration": 200,
+  "vim.foldfix": true,
+  // "vim.sneak": true,
+  "vim.easymotion": true,
+  "vim.overrideCopy": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.handleKeys": {},
+  // ==== VIM NORMAL MODE ====
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<C-a>"
+      ],
+      "after": [
+        "g",
+        "g",
+        "V",
+        "G"
+      ]
+    },
+    {
+      "before": [
+        "<C-n>"
+      ],
+      "commands": [
+        ":nohl"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "e"
+      ],
+      "commands": [
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    },
+    {
+      "before": [
+        "<C-Up>"
+      ],
+      "commands": [
+        "workbench.action.increaseViewSize"
+      ]
+    },
+    {
+      "before": [
+        "<C-Down>"
+      ],
+      "commands": [
+        "workbench.action.decreaseViewSize"
+      ]
+    },
+    {
+      "before": [
+        "<S-l>"
+      ],
+      "commands": [
+        ":bnext"
+      ]
+    },
+    {
+      "before": [
+        "<S-h>"
+      ],
+      "commands": [
+        ":bprevious"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "w"
+      ],
+      "commands": [
+        ":w!"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "W"
+      ],
+      "commands": [
+        ":wall"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "q"
+      ],
+      "commands": [
+        ":q!"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "commands": [
+        ":wq!"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "Q"
+      ],
+      "commands": [
+        ":qall"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "F"
+      ],
+      "commands": [
+        "editor.action.formatDocument"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "t"
+      ],
+      "commands": [
+        "workbench.action.terminal.toggleTerminal"
+      ]
+    },
+    {
+      "before": [
+        "<S-k>"
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "/"
+      ],
+      "commands": [
+        "workbench.action.findInFiles"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "p"
+      ],
+      "commands": [
+        "workbench.action.showCommands"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "v"
+      ],
+      "commands": [
+        "workbench.action.splitEditorRight"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "s"
+      ],
+      "commands": [
+        "workbench.action.splitEditorDown"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "h"
+      ],
+      "commands": [
+        "cursorHome"
+      ]
+    },
+    {
+      "before": [
+        "+"
+      ],
+      "commands": [
+        "editor.action.incrementNumberUnderCursor"
+      ]
+    },
+    {
+      "before": [
+        "-"
+      ],
+      "commands": [
+        "editor.action.decrementNumberUnderCursor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    },
+    // Go to Definition
+    {
+      "before": [
+        "g",
+        "d"
+      ],
+      "commands": [
+        "editor.action.goToDefinition"
+      ]
+    },
+    // Peek Definition
+    {
+      "before": [
+        "g",
+        "p",
+        "d"
+      ],
+      "commands": [
+        "editor.action.peekDefinition"
+      ]
+    },
+    // Show Hover
+    {
+      "before": [
+        "g",
+        "h"
+      ],
+      "commands": [
+        "editor.action.showDefinitionPreviewHover"
+      ]
+    },
+    // Go to Implementations
+    {
+      "before": [
+        "g",
+        "i"
+      ],
+      "commands": [
+        "editor.action.goToImplementation"
+      ]
+    },
+    // Peek Implementations
+    {
+      "before": [
+        "g",
+        "p",
+        "i"
+      ],
+      "commands": [
+        "editor.action.peekImplementation"
+      ]
+    },
+    // Go to References
+    {
+      "before": [
+        "g",
+        "r"
+      ],
+      "commands": [
+        "editor.action.referenceSearch.trigger"
+      ]
+    },
+    // Go to Type Definition
+    {
+      "before": [
+        "g",
+        "t"
+      ],
+      "commands": [
+        "editor.action.goToTypeDefinition"
+      ]
+    },
+    // Peek Type Definition
+    {
+      "before": [
+        "g",
+        "p",
+        "t"
+      ],
+      "commands": [
+        "editor.action.peekTypeDefinition"
+      ]
+    }
+    // { "before": ["K"], "commands": [ "lineBreakInsert" ], "silent": true },
+  ],
+  // ==== VIM VISUAL MODE ====
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<"
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
+    },
+    {
+      "before": [
+        ">"
+      ],
+      "commands": [
+        "editor.action.indentLines"
+      ]
+    },
+    // Select all occurrences of current selection with leader+a
+    {
+      "before": [
+        "<leader>",
+        "a"
+      ],
+      "commands": [
+        "editor.action.selectHighlights"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "s"
+      ],
+      "after": [
+        ":",
+        "s",
+        "/"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "c"
+      ],
+      "after": [
+        "g",
+        "c"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "C"
+      ],
+      "commands": [
+        "editor.action.blockComment"
+      ]
+    }
+  ],
+  // ===== Editor  =====
+  "editor.minimap.enabled": false,
+  "editor.lineNumbers": "relative",
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.mypy_cache": true,
+    "**/*.pyc": true
+  },
+  // "editor.guides.bracketPairs": true,
+  // ==== Python Overrides ====
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always",
+      "source.fixAll": "explicit"
+    }
+  },
+  // ==== Python ====
+  "python.analysis.autoImportCompletions": true,
+  "python.terminal.activateEnvironment": true,
+  "python.analysis.diagnosticMode": "workspace",
+  "ruff.enable": true,
+  "ruff.fixAll": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.defaultInterpreterPath": "/opt/homebrew/bin/python4",
+  // ==== Terminal ====
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  // ==== Misc ====
+  "workbench.editor.empty.hint": "hidden",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "extensions.ignoreRecommendations": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  // To improve performance
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 2
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
