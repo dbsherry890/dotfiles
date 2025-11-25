@@ -5,13 +5,13 @@
 ## Instructions
 ### Mac/Linux:
 ``` bash
-git clone git@github.com:yourname/dotfiles.git ~/.dotfiles
+git clone git@github.com:dbsherry890/dotfiles.git ~/.dotfiles
 ~/.dotfiles/install.sh
 ```
 
 ### Windows 
 ``` bash
-git clone git@github.com:yourname/dotfiles.git $HOME\.dotfiles
+git clone git@github.com:dbsherry890/dotfiles.git $HOME\.dotfiles
 setx DOTFILES "$HOME\.dotfiles"
 powershell -ExecutionPolicy Bypass -File .\dotfiles\install.ps1
 ```
