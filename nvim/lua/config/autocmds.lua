@@ -13,3 +13,8 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.cmd 'wincmd o' -- optional: close other windows so help takes over
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  command = [[%s/\r//ge]],
+})

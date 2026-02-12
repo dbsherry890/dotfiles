@@ -64,9 +64,7 @@ vim.keymap.set('n', '<c-a>', 'gg0VG', opts)
 -- vim.keymap.set('n', 'YY', 'va{Vy', opts)
 keymap('n', '<leader>rp', ':w<CR>:!python3 %<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>rl', ':w<CR>:!lua %<CR>', { noremap = true, silent = true })
-keymap('n', '<leader>go', ':w<CR>:!go run .<CR>', { noremap = true, silent = true })
--- keymap('n', '<leader>x', ':.lua<CR>', opts) -- . means current line
--- keymap('v', '<leader>x', ':lua<CR>', opts)
+keymap('n', '<leader>go', ':w<CR>:!go run %<CR>', { noremap = true, silent = true })
 
 -- undo word by word
 keymap('i', '<space>', '<C-G>u<space>', opts)
