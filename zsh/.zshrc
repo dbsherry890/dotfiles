@@ -85,12 +85,11 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 
 ## -----------------------------
+## Postgresql
+## -----------------------------
+export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
+
+## -----------------------------
 ## Aliases
 ## -----------------------------
-alias python=/usr/bin/python3
-alias ls="eza --icons=always"
-alias cm="cmatrix"
-alias dot="cd ~/.config/nvim; nvim"
-alias zshrc="nvim ~/.zshrc"
-alias e="exit"
-alias c="clear"
+[[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"

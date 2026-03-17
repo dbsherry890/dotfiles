@@ -64,8 +64,10 @@ vim.keymap.set('n', '<c-a>', 'gg0VG', opts)
 -- vim.keymap.set('n', 'YY', 'va{Vy', opts)
 keymap('n', '<leader>rp', ':w<CR>:!python3 %<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>rl', ':w<CR>:!lua %<CR>', { noremap = true, silent = true })
-keymap('n', '<leader>go', ':w<CR>:!go run .<CR>', { noremap = true, silent = true })
--- keymap('n', '<leader>x', ':.lua<CR>', opts) -- . means current line
+keymap('n', '<leader>rL', ':.lua<CR>', opts) -- . means current line
+keymap('n', '<leader>go', ':w<CR>:!go run %<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>js', ':w<CR>:!node %<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>bo', ':%bd|e#<CR>', { desc = 'Delete other buffers' })
 -- keymap('v', '<leader>x', ':lua<CR>', opts)
 
 -- undo word by word
@@ -76,3 +78,14 @@ end, { desc = 'Print [Lua] [L]ine' })
 
 keymap('n', '+', '<C-A>', opts)
 keymap('n', '-', '<C-X>', opts)
+
+-- Insert mode navigation (Emacs style)
+keymap('i', '<C-f>', '<Right>')
+keymap('i', '<C-b>', '<Left>')
+keymap('i', '<C-n>', '<Down>')
+keymap('i', '<C-p>', '<Up>')
+keymap('i', '<C-a>', '<Home>')
+keymap('i', '<C-e>', '<End>')
+keymap('i', '<C-d>', '<Del>')
+keymap('i', '<M-Right>', '<C-o>w')
+keymap('i', '<M-Left>', '<C-o>b')

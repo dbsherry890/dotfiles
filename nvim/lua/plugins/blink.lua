@@ -16,8 +16,10 @@ return {
   opts = {
     snippets = { preset = 'default' },
     keymap = {
-      ['<Tab>'] = { 'select_next', 'snippet_forward', 'fallback' },
+      -- ['<Tab>'] = { 'select_next', 'snippet_forward', 'fallback' },
       ['<CR>'] = { 'select_and_accept', 'fallback' },
+      ['<C-f>'] = { 'select_and_accept', 'fallback' },
+      ['<TAB>'] = { 'select_and_accept', 'fallback' },
     },
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
