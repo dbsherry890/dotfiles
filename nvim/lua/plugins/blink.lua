@@ -3,15 +3,15 @@ return {
   version = '1.*',
   dependencies = {
     { 'L3MON4D3/LuaSnip', version = 'v2.*' },
-    {
-      'windwp/nvim-autopairs',
-      config = function()
-        require('nvim-autopairs').setup {}
-        local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
-        local blink = require 'blink.cmp'
-        blink.event:on('confirm_done', cmp_autopairs.on_confirm_done())
-      end,
-    },
+    -- {
+    --   'windwp/nvim-autopairs',
+    --   config = function()
+    --     require('nvim-autopairs').setup {}
+    --     local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+    --     local blink = require 'blink.cmp'
+    --     blink.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+    --   end,
+    -- },
   },
   opts = {
     snippets = { preset = 'default' },
@@ -20,6 +20,8 @@ return {
       ['<CR>'] = { 'select_and_accept', 'fallback' },
       ['<C-f>'] = { 'select_and_accept', 'fallback' },
       ['<TAB>'] = { 'select_and_accept', 'fallback' },
+      ['<Tab>'] = { 'select_and_accept', 'fallback' },
+      -- ['<CR>'] = { 'select_and_accept', 'fallback' },
     },
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
