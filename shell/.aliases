@@ -1,0 +1,9 @@
+alias c="clear"
+alias cat=bat
+alias cm="cmatrix"
+alias dot="nvim ~/.config/nvim"
+alias e="exit"
+alias ls="eza -1 --icons=always"
+alias py=python3
+alias src="source .venv/bin/activate"
+alias zshrc="nvim ~/.zshrc"
