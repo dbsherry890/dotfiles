@@ -20,8 +20,8 @@ require('lazy').setup {
   { import = 'plugins' },
 }
 
+require 'config.abbreviations'
 require 'config.autocmds'
 require 'config.keymaps'
 require 'config.options'
 require 'config.lsp'
--- require 'config.abbreviations'

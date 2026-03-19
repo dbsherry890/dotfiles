@@ -3,6 +3,10 @@ alias cat=bat
 alias cm="cmatrix"
 alias dot="nvim ~/.config/nvim"
 alias e="exit"
+alias ga="git add ."
+alias gc="git commit -m "
+alias gp="git push"
+alias gs="git status"
 alias ls="eza -1 --icons=always"
 alias py=python3
 alias src="source .venv/bin/activate"

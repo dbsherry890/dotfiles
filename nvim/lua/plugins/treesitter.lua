@@ -1,10 +1,10 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate", -- ensures parsers stay updated
-  event = { "BufReadPost", "BufNewFile" },
+  'nvim-treesitter/nvim-treesitter',
+  build = ':TSUpdate', -- ensures parsers stay updated
+  event = { 'BufReadPost', 'BufNewFile' },
   config = function()
-    require("nvim-treesitter.configs").setup({
-      ensure_installed = { "python", "javascript", "go" },
+    require('nvim-treesitter.configs').setup {
+      ensure_installed = { 'python', 'javascript', 'go' },
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
@@ -15,10 +15,10 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = "<C-s>",
-          node_decremental = "<C-backspace>",
+          init_selection = '<C-space>',
+          node_incremental = '<C-space>',
+          scope_incremental = '<C-s>',
+          -- node_decremental = "<C-backspace>",
         },
       },
       textobjects = {
@@ -26,25 +26,25 @@ return {
           enable = true,
           lookahead = true,
           keymaps = {
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["ac"] = "@class.outer",
-            ["ic"] = "@class.inner",
+            ['af'] = '@function.outer',
+            ['if'] = '@function.inner',
+            ['ac'] = '@class.outer',
+            ['ic'] = '@class.inner',
           },
         },
         move = {
           enable = true,
           set_jumps = true,
           goto_next_start = {
-            ["]m"] = "@function.outer",
-            ["]]"] = "@class.outer",
+            [']m'] = '@function.outer',
+            [']]'] = '@class.outer',
           },
           goto_previous_start = {
-            ["[m"] = "@function.outer",
-            ["[["] = "@class.outer",
+            ['[m'] = '@function.outer',
+            ['[['] = '@class.outer',
           },
         },
       },
-    })
+    }
   end,
 }

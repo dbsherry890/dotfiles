@@ -12,8 +12,6 @@ return {
         i = {
           ['<C-u>'] = actions.preview_scrolling_up,
           ['<C-d>'] = actions.preview_scrolling_down,
-          -- ['<C-n>'] = actions.cycle_history_next,
-          -- ['<C-p>'] = actions.cycle_history_prev,
           ['<C-p>'] = actions.move_selection_previous,
           ['<C-n>'] = actions.move_selection_next,
           ['<C-j>'] = actions.move_selection_next,

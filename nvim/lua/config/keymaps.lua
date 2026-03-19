@@ -61,7 +61,6 @@ keymap('n', 'k', 'gk', opts)
 
 vim.keymap.set('n', '<c-a>', 'gg0VG', opts)
 
--- vim.keymap.set('n', 'YY', 'va{Vy', opts)
 keymap('n', '<leader>rp', ':w<CR>:!python3 %<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>rl', ':w<CR>:!lua %<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>rL', ':.lua<CR>', opts) -- . means current line
@@ -72,10 +71,7 @@ keymap('n', '<leader>bo', ':%bd|e#<CR>', { desc = 'Delete other buffers' })
 keymap('n', '<leader>go', ':w<CR>:!go run %<CR>', { noremap = true, silent = true })
 
 -- undo word by word
-keymap('i', '<space>', '<C-G>u<space>', opts)
-keymap('n', '<leader>l', function()
-  print(vim.api.nvim_get_current_line())
-end, { desc = 'Print [Lua] [L]ine' })
+-- keymap('i', '<space>', '<C-G>u<space>', opts)
 
 keymap('n', '+', '<C-A>', opts)
 keymap('n', '-', '<C-X>', opts)
@@ -83,10 +79,12 @@ keymap('n', '-', '<C-X>', opts)
 -- Insert mode navigation (Emacs style)
 keymap('i', '<C-f>', '<Right>')
 keymap('i', '<C-b>', '<Left>')
-keymap('i', '<C-n>', '<Down>')
-keymap('i', '<C-p>', '<Up>')
 keymap('i', '<C-a>', '<Home>')
 keymap('i', '<C-e>', '<End>')
 keymap('i', '<C-d>', '<Del>')
-keymap('i', '<M-Right>', '<C-o>w')
-keymap('i', '<M-Left>', '<C-o>b')
+keymap('i', '<C-h>', '<Backspace>')
+keymap('i', '<C-j>', '<Down>')
+
+vim.keymap.set('n', '<leader>sd', function()
+  require('snacks').dashboard()
+end, { desc = 'Dashboard' })
