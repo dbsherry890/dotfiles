@@ -20,6 +20,7 @@ Config files for Mac and WSL (Windows work environment).
 ### Mac / Linux
 ```bash
 git clone git@github.com:dbsherry890/dotfiles.git ~/.dotfiles
+chmod +x ~/.dotfiles/install.sh
 ~/.dotfiles/install.sh
 ```
 

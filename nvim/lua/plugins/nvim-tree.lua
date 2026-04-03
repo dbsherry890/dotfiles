@@ -4,8 +4,8 @@ return {
     version = '*',
     cmd = { 'NvimTreeToggle', 'NvimTreeFocus' },
     keys = {
-      { '<leader>e', '<cmd>NvimTreeToggle<CR>', desc = 'Toggle NvimTree' },
-      { '<leader>fe', '<cmd>NvimTreeFocus<CR>', desc = 'Focus NvimTree' },
+      { '<leader>e',  '<cmd>NvimTreeToggle<CR>', desc = 'Toggle NvimTree' },
+      { '<leader>fe', '<cmd>NvimTreeFocus<CR>',  desc = 'Focus NvimTree' },
     },
     lazy = false,
     dependencies = {
