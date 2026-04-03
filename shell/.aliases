@@ -1,13 +1,39 @@
-alias c="clear"
-alias cat=bat
-alias cm="cmatrix"
+# ── Navigation ──────────────────────────────────────────────────────────────
+alias ..='cd ..'
+
+# ── Listing ─────────────────────────────────────────────────────────────────
+alias ls="eza -1 --icons=always"
+alias la="ls -a "
+alias ll="ls -l "
+alias l="la"
+
+# ── Editing ─────────────────────────────────────────────────────────────────
+alias bashrc="nvim ~/.bashrc"
+alias zshrc="nvim ~/.zshrc"
 alias dot="nvim ~/.config/nvim"
-alias e="exit"
+
+# ── Git ──────────────────────────────────────────────────────────────────────
 alias ga="git add ."
 alias gc="git commit -m "
 alias gp="git push"
 alias gs="git status"
-alias ls="eza -1 --icons=always"
+
+# ── Tmux ─────────────────────────────────────────────────────────────────────
+alias ta='tmux attach -t'
+alias tls='tmux ls'
+alias tn='tmux new -s'
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+alias c="clear"
+alias cm="cmatrix"
+alias e="exit"
+alias grep="grep --color=auto"
 alias py=python3
 alias src="source .venv/bin/activate"
-alias zshrc="nvim ~/.zshrc"
+
+# ── Obsidian ──────────────────────────────────────────────────────────────────────
+alias notes="cd ~/obsidian"
+
+# ── Work ──────────────────────────────────────────────────────────────────────
+alias ercot="cd ~/obsidian/ERCOT; nvim"
+alias win="cd /mnt/c/Users/DSHERRY/"

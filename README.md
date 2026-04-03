@@ -1,23 +1,38 @@
 # Dotfiles
 
-## Configs for NeoVim, Tmux, VSCode, Zsh, git
+Config files for Mac and WSL (Windows work environment).
 
-## Instructions
-### Mac/Linux:
-``` bash
+## Contents
+
+| Config | File |
+|--------|------|
+| Zsh | [shell/.zshrc](shell/.zshrc) |
+| Aliases | [shell/.aliases](shell/.aliases) |
+| Tmux | [shell/.tmux.conf](shell/.tmux.conf) |
+| Git | [git/.gitconfig](git/.gitconfig) |
+| Neovim | [nvim/init.lua](nvim/init.lua) |
+| VSCode Settings | [vscode/settings.json](vscode/settings.json) |
+| VSCode Keybindings | [vscode/keybindings.json](vscode/keybindings.json) |
+| VSCode Extensions | [vscode/extensions.txt](vscode/extensions.txt) |
+
+## Setup
+
+### Mac / Linux
+```bash
 git clone git@github.com:dbsherry890/dotfiles.git ~/.dotfiles
 ~/.dotfiles/install.sh
 ```
 
-### Windows 
-``` bash
+### Windows (WSL)
+```bash
 git clone git@github.com:dbsherry890/dotfiles.git $HOME\.dotfiles
 setx DOTFILES "$HOME\.dotfiles"
 powershell -ExecutionPolicy Bypass -File .\dotfiles\install.ps1
 ```
 
-#### Note
-To rewrite list of extensions and update file: 
-``` bash
+## Notes
+
+To update the VSCode extensions list:
+```bash
 code --list-extensions > ~/dotfiles/vscode/extensions.txt
 ```
