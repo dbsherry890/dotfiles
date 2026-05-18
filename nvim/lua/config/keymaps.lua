@@ -68,7 +68,6 @@ keymap('n', '<leader>go', ':w<CR>:!go run %<CR>', { noremap = true, silent = tru
 keymap('n', '<leader>js', ':w<CR>:!node %<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>bo', ':%bd|e#<CR>', { desc = 'Delete other buffers' })
 -- keymap('v', '<leader>x', ':lua<CR>', opts)
-keymap('n', '<leader>go', ':w<CR>:!go run %<CR>', { noremap = true, silent = true })
 
 -- undo word by word
 -- keymap('i', '<space>', '<C-G>u<space>', opts)

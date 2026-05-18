@@ -14,6 +14,7 @@ alias dot="nvim ~/.config/nvim"
 
 # ── Git ──────────────────────────────────────────────────────────────────────
 alias ga="git add ."
+alias gb="git branch"
 alias gc="git commit -m "
 alias gp="git push"
 alias gs="git status"
@@ -30,10 +31,13 @@ alias e="exit"
 alias grep="grep --color=auto"
 alias py=python3
 alias src="source .venv/bin/activate"
-
+alias copilot="copilot -i 'Talk like a caveman, and use karpathy guidelines'"
 # ── Obsidian ──────────────────────────────────────────────────────────────────────
 alias notes="cd ~/obsidian"
 
 # ── Work ──────────────────────────────────────────────────────────────────────
 alias ercot="cd ~/obsidian/ERCOT; nvim"
 alias win="cd /mnt/c/Users/DSHERRY/"
+alias winopen="explorer.exe"
+alias mdview='f() { pandoc "$1" -o /tmp/preview.html && explorer.exe "$(wslpath -w /tmp/preview.html)"; }; f'
+alias dc='docker compose'
