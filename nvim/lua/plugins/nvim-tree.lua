@@ -46,7 +46,7 @@ return {
           },
         },
         filters = {
-          dotfiles = true, -- hide dotfiles by default
+          dotfiles = false, -- hide dotfiles by default
           custom = { '__pycache__', '%.pyc$' },
         },
         on_attach = function(bufnr)
