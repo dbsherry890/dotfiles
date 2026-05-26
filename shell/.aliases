@@ -2,15 +2,15 @@
 alias ..='cd ..'
 
 # ── Listing ─────────────────────────────────────────────────────────────────
-alias ls="eza -1 --icons=always"
-alias la="ls -a "
-alias ll="ls -l "
-alias l="la"
+alias ls="eza -1 --icons=always --group-directories-first --classify"
+alias la="ls -aF"
+alias ll="ls -lF"
+alias l="la -F"
 
 # ── Editing ─────────────────────────────────────────────────────────────────
 alias bashrc="nvim ~/.bashrc"
 alias zshrc="nvim ~/.zshrc"
-alias dot="nvim ~/.config/nvim"
+alias dot="nvim ~/Dotfiles"
 
 # ── Git ──────────────────────────────────────────────────────────────────────
 alias ga="git add ."
@@ -41,3 +41,7 @@ alias win="cd /mnt/c/Users/DSHERRY/"
 alias winopen="explorer.exe"
 alias mdview='f() { pandoc "$1" -o /tmp/preview.html && explorer.exe "$(wslpath -w /tmp/preview.html)"; }; f'
 alias dc='docker compose'
+
+# ── Launch ──────────────────────────────────────────────────────────────────────
+alias github="open https://github.com/dbsherry890"
+alias rm='rm -i'

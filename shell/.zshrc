@@ -11,6 +11,12 @@ fi
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 ## -----------------------------
+## CDPATH
+## -----------------------------
+export CDPATH="$HOME"
+export CDPATH="$CDPATH:$HOME/Coding"
+
+## -----------------------------
 ## Oh My Zsh
 ## -----------------------------
 export ZSH="$HOME/.oh-my-zsh"
@@ -20,7 +26,9 @@ zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 30
 
 ENABLE_CORRECTION="true"
-export EDITOR='mvim'
+export EDITOR='nvim'
+
+setopt correctall
 
 ## -----------------------------
 ## Homebrew (recommended)
@@ -36,24 +44,6 @@ extra_brew_bins=(
 for dir in "${extra_brew_bins[@]}"; do
   [[ -d "$dir" ]] && PATH="$dir:$PATH"
 done
-
-## -----------------------------
-## Python site-packages
-## -----------------------------
-python_paths=(
-  "/usr/local/lib/python3.10/site-packages"
-  "$HOME/Library/Python/3.11/lib/python/site-packages"
-  "$HOME/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages"
-)
-for dir in "${python_paths[@]}"; do
-  [[ -d "$dir" ]] && PATH="$PATH:$dir"
-done
-
-## -----------------------------
-## Node / NVM
-## -----------------------------
-[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 ## -----------------------------
 ## Local environment variables
