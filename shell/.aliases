@@ -31,7 +31,7 @@ alias e="exit"
 alias grep="grep --color=auto"
 alias py=python3
 alias src="source .venv/bin/activate"
-alias copilot="copilot -i 'Talk like a caveman, and use karpathy guidelines'"
+# alias copilot="copilot -i 'Talk like a caveman, and use karpathy guidelines'"
 # ── Obsidian ──────────────────────────────────────────────────────────────────────
 alias notes="cd ~/obsidian"
 
