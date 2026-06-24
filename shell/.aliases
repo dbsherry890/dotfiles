@@ -10,7 +10,7 @@ alias l="la -F"
 # ── Editing ─────────────────────────────────────────────────────────────────
 alias bashrc="nvim ~/.bashrc"
 alias zshrc="nvim ~/.zshrc"
-alias dot="nvim ~/Dotfiles"
+alias dot="nvim ~/dotfiles"
 
 # ── Git ──────────────────────────────────────────────────────────────────────
 alias ga="git add ."
@@ -36,11 +36,14 @@ alias src="source .venv/bin/activate"
 alias notes="cd ~/obsidian"
 
 # ── Work ──────────────────────────────────────────────────────────────────────
-alias ercot="cd ~/obsidian/ERCOT; nvim"
-alias win="cd /mnt/c/Users/DSHERRY/"
-alias winopen="explorer.exe"
-alias mdview='f() { pandoc "$1" -o /tmp/preview.html && explorer.exe "$(wslpath -w /tmp/preview.html)"; }; f'
-alias dc='docker compose'
+if grep -qi microsoft /proc/version 2>/dev/null; then
+  alias pbcopy='clip.exe'
+  alias ercot="cd ~/obsidian/ERCOT; nvim"
+  alias win="cd /mnt/c/Users/DSHERRY/"
+  alias winopen="explorer.exe"
+  alias mdview='f() { pandoc "$1" -o /tmp/preview.html && explorer.exe "$(wslpath -w /tmp/preview.html)"; }; f'
+  alias dc='docker compose'
+fi
 
 # ── Launch ──────────────────────────────────────────────────────────────────────
 alias github="open https://github.com/dbsherry890"
