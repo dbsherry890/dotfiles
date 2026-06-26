@@ -17,6 +17,7 @@ return {
       lua = { 'stylua' },
       python = { 'ruff_format', stop_after_first = true },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      go = { 'goimports' },
     },
     default_format_opts = {
       lsp_format = 'fallback',

@@ -83,6 +83,7 @@ keymap('i', '<C-e>', '<End>')
 keymap('i', '<C-d>', '<Del>')
 keymap('i', '<C-h>', '<Backspace>')
 keymap('i', '<C-j>', '<Down>')
+keymap('i', '<C-k>', '<Up>')
 
 vim.keymap.set('n', '<leader>sd', function()
   require('snacks').dashboard()

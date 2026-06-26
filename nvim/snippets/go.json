@@ -1,0 +1,11 @@
+{
+  "if err": {
+    "prefix": "iferr",
+    "body": [
+      "if err != nil {",
+      "\treturn ${1:err}",
+      "}",
+      "$0"
+    ]
+  }
+}
