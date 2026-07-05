@@ -18,3 +18,5 @@
   km = "!f() { git config --list | grep alias; }; f"
   gr = "!f() { git log --graph --decorate --oneline; }; f"
 
+[pull]
+	rebase = true
