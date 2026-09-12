@@ -1,50 +1,18 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  build = ':TSUpdate', -- ensures parsers stay updated
-  event = { 'BufReadPost', 'BufNewFile' },
+  branch = 'main', -- 'master' is frozen; 'main' is the actively maintained rewrite (needs Neovim 0.12+)
+  lazy = false, -- this plugin doesn't support lazy-loading
+  build = ':TSUpdate',
   config = function()
-    require('nvim-treesitter.configs').setup {
-      ensure_installed = { 'python', 'javascript', 'go' },
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-      indent = {
-        enable = true,
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = '<C-space>',
-          node_incremental = '<C-space>',
-          scope_incremental = '<C-s>',
-          -- node_decremental = "<C-backspace>",
-        },
-      },
-      textobjects = {
-        select = {
-          enable = true,
-          lookahead = true,
-          keymaps = {
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
-          },
-        },
-        move = {
-          enable = true,
-          set_jumps = true,
-          goto_next_start = {
-            [']m'] = '@function.outer',
-            [']]'] = '@class.outer',
-          },
-          goto_previous_start = {
-            ['[m'] = '@function.outer',
-            ['[['] = '@class.outer',
-          },
-        },
-      },
-    }
+    local ensure_installed = { 'python', 'javascript', 'go' }
+    require('nvim-treesitter').install(ensure_installed)
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = ensure_installed,
+      callback = function()
+        vim.treesitter.start()
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
+    })
   end,
 }
