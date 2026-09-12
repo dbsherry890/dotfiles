@@ -14,7 +14,22 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*',
   command = [[%s/\r//ge]],
+})
+
+-- vim.api.nvim_create_autocmd('InsertLeave', {
+--   pattern = '*',
+--   command = 'silent! update',
+-- })
+
+vim.api.nvim_create_autocmd('InsertLeave', {
+  pattern = '*',
+  callback = function()
+    if vim.bo.modified then
+      vim.cmd 'update'
+      print 'saved'
+    end
+  end,
 })

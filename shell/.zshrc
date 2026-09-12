@@ -1,24 +1,16 @@
-## -----------------------------
-## Powerlevel10k instant prompt
-## -----------------------------
+## Powerlevel10k prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-## -----------------------------
-## Base PATH
-## -----------------------------
+## Base PATH 
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
-## -----------------------------
-## CDPATH
-## -----------------------------
+## CDPATH 
 export CDPATH="$HOME"
-export CDPATH="$CDPATH:$HOME/Coding"
+export CDPATH="$CDPATH:$HOME/1_Projects/"
 
-## -----------------------------
 ## Oh My Zsh
-## -----------------------------
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
@@ -30,56 +22,40 @@ export EDITOR='nvim'
 
 setopt correctall
 
-## -----------------------------
-## Homebrew (recommended)
-## -----------------------------
+## Homebrew
 # Sets PATH, MANPATH, INFOPATH
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Add additional Homebrew tools if needed
 extra_brew_bins=(
-  "/opt/homebrew/opt/openjdk/bin"
+  # "/opt/homebrew/opt/openjdk/bin"
   "/opt/homebrew/opt/libpq/bin"
 )
 for dir in "${extra_brew_bins[@]}"; do
   [[ -d "$dir" ]] && PATH="$dir:$PATH"
 done
 
-## -----------------------------
 ## Local environment variables
-## -----------------------------
 [[ -f "$HOME/.local/bin/env" ]] && . "$HOME/.local/bin/env"
 
-## -----------------------------
 ## Powerlevel10k theme
-## -----------------------------
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-## -----------------------------
 ## Plugins
-## -----------------------------
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-## -----------------------------
-## fzf
-## -----------------------------
+## fzf 
 source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,60% --layout reverse --border top'
 
-## -----------------------------
-## Go
-## -----------------------------
+## Go 
 export GOPATH="$HOME/go"
 export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 
-## -----------------------------
 ## Postgresql
-## -----------------------------
 export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
 
-## -----------------------------
-## Aliases
-## -----------------------------
+## Aliases 
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"

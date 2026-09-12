@@ -2,7 +2,7 @@
 alias ..='cd ..'
 
 # ── Listing ─────────────────────────────────────────────────────────────────
-alias ls="eza -1 --icons=always --group-directories-first --classify"
+alias ls="eza -1 --icons=always --group-directories-first --classify=auto"
 alias la="ls -aF"
 alias ll="ls -lF"
 alias l="la -F"
@@ -24,6 +24,10 @@ alias ta='tmux attach -t'
 alias tls='tmux ls'
 alias tn='tmux new -s'
 
+# ── tldr ─────────────────────────────────────────────────────────────────────
+export PAGER="bat -l md"
+alias tldr='tldr --pager'
+
 # ── Misc ──────────────────────────────────────────────────────────────────────
 alias c="clear"
 alias cm="cmatrix"
@@ -32,6 +36,8 @@ alias grep="grep --color=auto"
 alias py=python3
 alias src="source .venv/bin/activate"
 # alias copilot="copilot -i 'Talk like a caveman, and use karpathy guidelines'"
+alias d="docker"
+#
 # ── Obsidian ──────────────────────────────────────────────────────────────────────
 alias notes="cd ~/obsidian"
 
@@ -47,4 +53,5 @@ fi
 
 # ── Launch ──────────────────────────────────────────────────────────────────────
 alias github="open https://github.com/dbsherry890"
+
 alias rm='rm -i'

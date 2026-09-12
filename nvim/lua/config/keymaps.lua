@@ -18,9 +18,6 @@ keymap('n', '<C-Left>', ':vertical resize -2<CR>', opts)
 keymap('n', '<S-l>', ':bnext<CR>', opts)
 keymap('n', '<S-h>', ':bprev<CR>', opts)
 
-keymap('n', '<leader>n', ':bnext<CR>', opts)
-keymap('n', '<leader>p', ':bprev<CR>', opts)
-
 keymap('n', '<leader>h', '^', opts)
 
 -- Stay in indent mode
@@ -67,8 +64,10 @@ keymap('n', '<leader>rL', ':.lua<CR>', opts) -- . means current line
 keymap('n', '<leader>go', ':w<CR>:!go run .<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>js', ':w<CR>:!node %<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>bo', ':%bd|e#<CR>', { desc = 'Delete other buffers' })
--- keymap('v', '<leader>x', ':lua<CR>', opts)
+keymap('n', '<leader>rb', ':w<CR>:!bash %<CR>', { noremap = true, silent = true })
 
+keymap('n', '<leader>p', ':put +<CR>', { noremap = true, silent = true })
+-- keymap('v', '<leader>x', ':lua<CR>', opts)
 -- undo word by word
 -- keymap('i', '<space>', '<C-G>u<space>', opts)
 
@@ -90,8 +89,8 @@ vim.keymap.set('n', '<leader>sd', function()
 end, { desc = 'Dashboard' })
 
 -- gx was adding extra parentheses
-vim.keymap.set("n", "gx", function()
-  local url = vim.fn.expand("<cfile>")
-  url = url:gsub("^['\"]", ""):gsub("['\"]$", "")
-  vim.fn.jobstart({ "xdg-open", url }, { detach = true })
-end, { desc = "Open URL under cursor" })
+vim.keymap.set('n', 'gx', function()
+  local url = vim.fn.expand '<cfile>'
+  url = url:gsub('^[\'"]', ''):gsub('[\'"]$', '')
+  vim.fn.jobstart({ 'xdg-open', url }, { detach = true })
+end, { desc = 'Open URL under cursor' })
