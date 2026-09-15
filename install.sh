@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-export DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
+export DOTFILES="$HOME/dotfiles"
 
 echo "─────────────────────────────────────"
 echo "  Dotfiles Installer (macOS/Linux)"
@@ -9,9 +9,6 @@ echo "────────────────────────�
 echo "Using DOTFILES = $DOTFILES"
 echo ""
 
-###
-# SYMLINK HELPER
-###
 link() {
     local src="$1"
     local dest="$2"
@@ -20,32 +17,19 @@ link() {
     ln -sfn "$src" "$dest"
 }
 
-###
 echo "Setting up shell dotfiles..."
 
-# ZSH (optional)
-if command -v zsh >/dev/null; then
-    link "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
-fi
-
-# Git
 link "$DOTFILES/git/.gitconfig" "$HOME/.gitconfig"
-
-# Neovim
 link "$DOTFILES/nvim" "$HOME/.config/nvim"
+link "$DOTFILES/shell/.aliases" "$HOME/.aliases"
+link "$DOTFILES/shell/.tmux.conf" "$HOME/.tmux.conf"
 
-# tmux config
-if command -v tmux >/dev/null; then
-  link "$DOTFILES/tmux/.tmux.conf" "$HOME/.tmux.conf"
+if command -v zsh >/dev/null; then
+    link "$DOTFILES/shell/.zshrc" "$HOME/.zshrc"
 fi
 
-
-###
-# VS CODE SYNC
-###
-# echo "Running VSCode setup..."
-# bash "$DOTFILES/vscode/setup_vscode.sh"
-# echo ""
+if command -v bash >/dev/null; then
+    link "$DOTFILES/shell/.bashrc" "$HOME/.bashrc"
+fi
 
 echo "🎉 Dotfiles setup complete!"
-
