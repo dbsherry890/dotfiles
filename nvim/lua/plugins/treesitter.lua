@@ -1,9 +1,10 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  build = ':TSUpdate', -- ensures parsers stay updated
+  branch = 'main',
+  build = ':TSUpdate',
   event = { 'BufReadPost', 'BufNewFile' },
   config = function()
-    require('nvim-treesitter.configs').setup {
+    require('nvim-treesitter').setup {
       ensure_installed = { 'python', 'javascript', 'go' },
       highlight = {
         enable = true,
@@ -18,7 +19,6 @@ return {
           init_selection = '<C-space>',
           node_incremental = '<C-space>',
           scope_incremental = '<C-s>',
-          -- node_decremental = "<C-backspace>",
         },
       },
       textobjects = {
