@@ -1,40 +1,41 @@
-local actions = require 'telescope.actions'
-
 return {
   'nvim-telescope/telescope.nvim',
   dependencies = { 'nvim-lua/plenary.nvim' },
-  opts = {
-    defaults = {
-      prompt_prefix = '>> ',
-      selection_caret = '$ ',
-      path_display = { 'smart' },
-      mappings = {
-        i = {
-          ['<C-u>'] = actions.preview_scrolling_up,
-          ['<C-d>'] = actions.preview_scrolling_down,
-          ['<C-p>'] = actions.move_selection_previous,
-          ['<C-n>'] = actions.move_selection_next,
-          ['<C-j>'] = actions.move_selection_next,
-          ['<C-k>'] = actions.move_selection_previous,
-          ['<C-c>'] = actions.close,
-          ['<CR>'] = actions.select_default,
-          ['<C-y>'] = actions.select_tab,
+  opts = function()
+    local actions = require 'telescope.actions'
+    return {
+      defaults = {
+        prompt_prefix = '>> ',
+        selection_caret = '$ ',
+        path_display = { 'smart' },
+        mappings = {
+          i = {
+            ['<C-u>'] = actions.preview_scrolling_up,
+            ['<C-d>'] = actions.preview_scrolling_down,
+            ['<C-p>'] = actions.move_selection_previous,
+            ['<C-n>'] = actions.move_selection_next,
+            ['<C-j>'] = actions.move_selection_next,
+            ['<C-k>'] = actions.move_selection_previous,
+            ['<C-c>'] = actions.close,
+            ['<CR>'] = actions.select_default,
+            ['<C-y>'] = actions.select_tab,
+          },
         },
       },
-    },
-    pickers = {
-      planets = {
-        show_pluto = true,
-        show_moon = true,
+      pickers = {
+        planets = {
+          show_pluto = true,
+          show_moon = true,
+        },
       },
-    },
-    extensions = {
-      media_files = {
-        filetypes = { 'png', 'webp', 'jpg', 'jpeg' },
-        find_cmd = 'rg',
+      extensions = {
+        media_files = {
+          filetypes = { 'png', 'webp', 'jpg', 'jpeg' },
+          find_cmd = 'rg',
+        },
       },
-    },
-  },
+    }
+  end,
 
   config = function(_, opts)
     local telescope = require 'telescope'

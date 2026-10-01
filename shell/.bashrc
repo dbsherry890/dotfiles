@@ -207,3 +207,4 @@ eval "$(fzf --bash)"
 
 export SKILL_CHAR_BUDGET=100000
 
+eval "$(starship init bash)"

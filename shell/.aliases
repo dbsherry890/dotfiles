@@ -25,10 +25,6 @@ alias ta='tmux attach -t'
 alias tls='tmux ls'
 alias tn='tmux new -s'
 
-# ── tldr ─────────────────────────────────────────────────────────────────────
-export PAGER="bat -l md"
-alias tldr='tldr --pager'
-
 # ── Misc ──────────────────────────────────────────────────────────────────────
 alias c="clear"
 alias cm="cmatrix"

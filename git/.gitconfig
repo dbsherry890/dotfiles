@@ -9,6 +9,7 @@
 	helper = cache --timeout=604800
 [http]
 	postBuffer = 157286400
+	sslCAInfo = /etc/ssl/certs/ca-certificates.crt
 [init]
 	defaultBranch = main
 [alias]
@@ -20,3 +21,5 @@
 
 [pull]
 	rebase = true
+[core]
+	autocrlf = input

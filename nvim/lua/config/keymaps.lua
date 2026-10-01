@@ -88,9 +88,11 @@ vim.keymap.set('n', '<leader>sd', function()
   require('snacks').dashboard()
 end, { desc = 'Dashboard' })
 
--- gx was adding extra parentheses
 vim.keymap.set('n', 'gx', function()
   local url = vim.fn.expand '<cfile>'
   url = url:gsub('^[\'"]', ''):gsub('[\'"]$', '')
-  vim.fn.jobstart({ 'xdg-open', url }, { detach = true })
+  if not url:match '^%a[%w+.-]*://' and not vim.uv.fs_stat(url) then
+    url = 'https://' .. url
+  end
+  vim.ui.open(url)
 end, { desc = 'Open URL under cursor' })
