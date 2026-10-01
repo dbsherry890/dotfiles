@@ -61,7 +61,7 @@ vim.keymap.set('n', '<c-a>', 'gg0VG', opts)
 keymap('n', '<leader>rp', ':w<CR>:!python3 %<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>rl', ':w<CR>:!lua %<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>rL', ':.lua<CR>', opts) -- . means current line
-keymap('n', '<leader>go', ':w<CR>:!go run .<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>go', ':w<CR>:!go run %<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>js', ':w<CR>:!node %<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>bo', ':%bd|e#<CR>', { desc = 'Delete other buffers' })
 keymap('n', '<leader>rb', ':w<CR>:!bash %<CR>', { noremap = true, silent = true })
