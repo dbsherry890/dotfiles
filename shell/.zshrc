@@ -92,3 +92,6 @@ export LESS_TERMCAP_ZO=$'\e[73m'
 export LESS_TERMCAP_ZW=$'\e[\75m'
 
 alias hl='rg --passthru'
+
+# Untracked per-machine overrides
+[[ -f ~/.localrc ]] && source ~/.localrc

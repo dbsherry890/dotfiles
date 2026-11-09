@@ -20,3 +20,7 @@
 
 [pull]
 	rebase = true
+
+# Per-machine overrides (e.g. work identity). Ignored if missing.
+[include]
+	path = ~/.gitconfig.local

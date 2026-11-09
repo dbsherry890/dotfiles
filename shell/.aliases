@@ -43,18 +43,6 @@ alias d="docker"
 # ── Obsidian ──────────────────────────────────────────────────────────────────────
 alias notes="cd ~/obsidian"
 
-# ── Work ──────────────────────────────────────────────────────────────────────
-if grep -qi microsoft /proc/version 2>/dev/null; then
-  alias pbcopy='clip.exe'
-  alias ercot="cd ~/obsidian/ERCOT; nvim"
-  alias win="cd /mnt/c/Users/DSHERRY/"
-  alias winopen="explorer.exe"
-  alias mdview='f() { pandoc "$1" -o /tmp/preview.html && explorer.exe "$(wslpath -w /tmp/preview.html)"; }; f'
-  alias d='docker'
-  alias dc='docker compose'
-  alias uve='unset VIRTUAL_ENV'
-fi
-
 # ── Launch ──────────────────────────────────────────────────────────────────────
 alias github="open https://github.com/dbsherry890"
 
