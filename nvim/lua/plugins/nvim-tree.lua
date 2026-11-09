@@ -4,8 +4,8 @@ return {
     version = '*',
     cmd = { 'NvimTreeToggle', 'NvimTreeFocus' },
     keys = {
-      { '<leader>e',  '<cmd>NvimTreeToggle<CR>', desc = 'Toggle NvimTree' },
-      { '<leader>fe', '<cmd>NvimTreeFocus<CR>',  desc = 'Focus NvimTree' },
+      { '<leader>e', '<cmd>NvimTreeToggle<CR>', desc = 'Toggle NvimTree' },
+      { '<leader>fe', '<cmd>NvimTreeFocus<CR>', desc = 'Focus NvimTree' },
     },
     lazy = false,
     dependencies = {
@@ -46,8 +46,29 @@ return {
           },
         },
         filters = {
-          dotfiles = false, -- hide dotfiles by default
-          custom = { '__pycache__', '%.pyc$' },
+          -- dotfiles: when true, hides anything starting with "." (.git, .env, .zshrc...)
+          --   false = dotfiles are SHOWN (what you have now)
+          --   true  = dotfiles are HIDDEN
+          -- Press `H` in the tree to toggle this on the fly either way.
+          dotfiles = false,
+
+          -- custom: list of VIM regexes (not Lua patterns!) matched against each
+          -- file/dir NAME. Anything that matches is hidden.
+          -- Press `U` in the tree to toggle these custom filters on/off.
+          -- [[ ... ]] is a Lua long string, so backslashes reach Vim untouched.
+          custom = {
+            -- ^ = start of name, $ = end of name.
+            -- Anchored so only a dir named exactly __pycache__ is hidden,
+            -- not something like "my__pycache__notes.md".
+            [[^__pycache__$]],
+
+            -- \. = a literal dot (a bare . would mean "any character")
+            -- pyc$ = name must END in pyc, so "foo.pyc" hides but "foo.pyc.bak" shows
+            [[\.pyc$]],
+
+            -- Same idea: hides clang's debug-symbol bundles like "hello.dSYM"
+            [[\.dSYM$]],
+          },
         },
         on_attach = function(bufnr)
           api.config.mappings.default_on_attach(bufnr)

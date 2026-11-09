@@ -58,13 +58,13 @@ keymap('n', 'k', 'gk', opts)
 
 vim.keymap.set('n', '<c-a>', 'gg0VG', opts)
 
-keymap('n', '<leader>rp', ':w<CR>:!python3 %<CR>', { noremap = true, silent = true })
-keymap('n', '<leader>rl', ':w<CR>:!lua %<CR>', { noremap = true, silent = true })
-keymap('n', '<leader>rL', ':.lua<CR>', opts) -- . means current line
+keymap('n', '<leader>bo', ':%bd|e#<CR>', { desc = 'Delete other buffers' })
 keymap('n', '<leader>go', ':w<CR>:!go run %<CR>', { noremap = true, silent = true })
 keymap('n', '<leader>js', ':w<CR>:!node %<CR>', { noremap = true, silent = true })
-keymap('n', '<leader>bo', ':%bd|e#<CR>', { desc = 'Delete other buffers' })
+keymap('n', '<leader>rL', ':.lua<CR>', opts) -- . means current line
 keymap('n', '<leader>rb', ':w<CR>:!bash %<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>rl', ':w<CR>:!lua %<CR>', { noremap = true, silent = true })
+keymap('n', '<leader>rp', ':w<CR>:!python3 %<CR>', { noremap = true, silent = true })
 
 keymap('n', '<leader>p', ':put +<CR>', { noremap = true, silent = true })
 -- keymap('v', '<leader>x', ':lua<CR>', opts)
@@ -76,13 +76,17 @@ keymap('n', '-', '<C-X>', opts)
 
 -- Insert mode navigation (Emacs style)
 keymap('i', '<C-f>', '<Right>')
+keymap('i', '<C-l>', '<Right>')
+keymap('i', '<C-h>', '<Left>')
 keymap('i', '<C-b>', '<Left>')
 keymap('i', '<C-a>', '<Home>')
 keymap('i', '<C-e>', '<End>')
 keymap('i', '<C-d>', '<Del>')
-keymap('i', '<C-h>', '<Backspace>')
+-- keymap('i', '<C-h>', '<Backspace>')
 keymap('i', '<C-j>', '<Down>')
 keymap('i', '<C-k>', '<Up>')
+keymap('i', '<C-p>', '<S-Left>')
+keymap('i', '<C-n>', '<S-Right>')
 
 vim.keymap.set('n', '<leader>sd', function()
   require('snacks').dashboard()
