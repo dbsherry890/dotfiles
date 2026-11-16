@@ -95,3 +95,6 @@ alias hl='rg --passthru'
 
 # Untracked per-machine overrides
 [[ -f ~/.localrc ]] && source ~/.localrc
+
+# #  -- K8s --
+source <(kubectl completion zsh)

@@ -96,5 +96,5 @@ end, { desc = 'Dashboard' })
 vim.keymap.set('n', 'gx', function()
   local url = vim.fn.expand '<cfile>'
   url = url:gsub('^[\'"]', ''):gsub('[\'"]$', '')
-  vim.fn.jobstart({ 'xdg-open', url }, { detach = true })
+  vim.ui.open(url) -- picks open / xdg-open / wslview per platform
 end, { desc = 'Open URL under cursor' })

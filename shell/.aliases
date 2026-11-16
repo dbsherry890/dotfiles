@@ -39,9 +39,10 @@ alias py=python3
 alias src="source .venv/bin/activate"
 # alias copilot="copilot -i 'Talk like a caveman, and use karpathy guidelines'"
 alias d="docker"
+alias kube="kubectl"
 #
 # ── Obsidian ──────────────────────────────────────────────────────────────────────
-alias notes="cd ~/obsidian"
+alias notes="cd ~/obsidian && nvim" # subshell so you don't stay in ~/obsidian
 
 # ── Launch ──────────────────────────────────────────────────────────────────────
 alias github="open https://github.com/dbsherry890"

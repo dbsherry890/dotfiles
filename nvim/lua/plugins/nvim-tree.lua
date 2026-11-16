@@ -57,6 +57,8 @@ return {
           -- Press `U` in the tree to toggle these custom filters on/off.
           -- [[ ... ]] is a Lua long string, so backslashes reach Vim untouched.
           custom = {
+            [[\.DS_Store$]],
+            [[\.obsidian]],
             -- ^ = start of name, $ = end of name.
             -- Anchored so only a dir named exactly __pycache__ is hidden,
             -- not something like "my__pycache__notes.md".
