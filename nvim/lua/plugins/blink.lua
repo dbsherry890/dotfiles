@@ -10,6 +10,13 @@ return {
       ['<Tab>'] = { 'select_and_accept', 'fallback' },
       ['<C-j>'] = { 'snippet_forward', 'fallback' },
       ['<C-k>'] = { 'snippet_backward', 'fallback' },
+      ['<C-f>'] = {
+        function(cmp)
+          cmp.hide()
+          vim.api.nvim_feedkeys(vim.keycode '<C-g>U<Right>', 'n', false)
+          return true
+        end,
+      },
     },
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' }, -- order matters

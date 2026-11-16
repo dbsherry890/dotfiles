@@ -124,11 +124,8 @@ alias ls='ls -1 -FhNv --color=auto --group-directories-first '
 alias la='ls -a '
 alias ll='la -l '
 alias sudo='sudo '
-alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin/code"
 alias bashrc="nvim ~/.bashrc"
 alias bat=batcat
-alias onedrive='cd "/mnt/c/Users/DSHERRY/OneDrive - ERCOT"; ls'
-alias d='/usr/local/bin/databricks'
 
 source ~/.local/share/bashrc/ssh-agent.sh
 
@@ -144,34 +141,10 @@ if [[ -z "$XDG_RUNTIME_DIR" ]]; then
   fi
 fi
 
-function update_python_ca_certs() {
-  for cacert in $(2>/dev/null find -name cacert.pem | grep certifi/cacert.pem); do
-    for cert in /usr/share/ca-certificates/ercot/*; do
-      alias=${cert##*/}; alias=${alias%.pem}; alias=${alias%.crt}
-      echo "# $alias" | tee -a $cacert
-      cat "$cert" | tee -a $cacert
-    done
-  done
-}
-
-function removemobaxtermstupidpath() {
-  local IFS=':'
-  local newpath=""
-  read -r -a pathelements <<< "$PATH"
-  for pathelement in "${pathelements[@]}"; do
-    if [[ "$pathelement" != /c/* ]] && [[ "$pathelement" != /mnt/c/* ]] && [[ "$pathelement" != *games* ]]; then
-      newpath="$newpath:$pathelement"
-    fi
-  done
-  newpath="${newpath#:}"
-  echo "$newpath"
-}
-export PATH=$(removemobaxtermstupidpath)
 powerline-daemon -q
 export POWERLINE_BASH_CONTINUATION=1
 export POWERLINE_BASH_SELECT=1
 . /usr/share/powerline/bindings/bash/powerline.sh
-export TNS_ADMIN=/home/dsherry/oracle/tnsnames.ora
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PYTHONSTARTUP=~/.pythonstartup
@@ -181,24 +154,10 @@ export PATH=$PATH:/usr/lib/go-1.22/bin:$GOPATH/bin
 
 export PATH="/home/linuxbrew/.linuxbrew/opt/postgresql@17/bin:$PATH"
 
-export PATH="$PATH:/mnt/c/Windows/System32" # added for copying support in tmux
-export PATH="$PATH:/mnt/c/Windows" # to find programs like explorer.exe
-
 export CDPATH="$HOME/1_Projects/"
-
-# for MCP
-export JIRA_BASE_URL="https://jira.ercot.com/"
-export MCP_TOOL_PACKAGE="change_coordinator"
 
 # Secrets (JIRA_TOKEN, etc.) - not tracked in dotfiles repo, must exist per-machine
 [ -f ~/.config/secrets/env.sh ] && source ~/.config/secrets/env.sh
-
-export BROWSER=wslview
-
-#  -- Databricks --
-export DATABRICKS_HOST="adb-4328769614695144.4.azuredatabricks.net"
-alias data='/usr/local/bin/databricks'
-eval "$(databricks completion bash)"
 
 #  -- K8s --
 command -v kubectl >/dev/null 2>&1 && eval "$(kubectl completion bash 2>/dev/null)"
@@ -207,3 +166,8 @@ eval "$(fzf --bash)"
 
 export SKILL_CHAR_BUDGET=100000
 
+# Work-only config (linked by install.sh on WSL)
+[ -f ~/.work.sh ] && . ~/.work.sh
+
+# Untracked per-machine overrides
+[ -f ~/.localrc ] && . ~/.localrc

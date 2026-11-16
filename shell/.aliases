@@ -27,7 +27,9 @@ alias tn='tmux new -s'
 
 # ── tldr ─────────────────────────────────────────────────────────────────────
 export PAGER="bat -l md"
-# alias tldr='tldr --pager'
+
+export MANPAGER="less -R"
+alias tldr='tldr --pager'
 
 # ── Misc ──────────────────────────────────────────────────────────────────────
 alias c="clear"
@@ -38,21 +40,10 @@ alias py=python3
 alias src="source .venv/bin/activate"
 # alias copilot="copilot -i 'Talk like a caveman, and use karpathy guidelines'"
 alias d="docker"
+alias kube="kubectl"
 #
 # ── Obsidian ──────────────────────────────────────────────────────────────────────
-alias notes="cd ~/obsidian"
-
-# ── Work ──────────────────────────────────────────────────────────────────────
-if grep -qi microsoft /proc/version 2>/dev/null; then
-  alias pbcopy='clip.exe'
-  alias ercot="cd ~/obsidian/ERCOT; nvim"
-  alias win="cd /mnt/c/Users/DSHERRY/"
-  alias winopen="explorer.exe"
-  alias mdview='f() { pandoc "$1" -o /tmp/preview.html && explorer.exe "$(wslpath -w /tmp/preview.html)"; }; f'
-  alias d='docker'
-  alias dc='docker compose'
-  alias uve='unset VIRTUAL_ENV'
-fi
+alias notes="cd ~/obsidian && nvim" # subshell so you don't stay in ~/obsidian
 
 # ── Launch ──────────────────────────────────────────────────────────────────────
 alias github="open https://github.com/dbsherry890"
