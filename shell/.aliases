@@ -48,3 +48,20 @@ alias notes="cd ~/obsidian && nvim" # subshell so you don't stay in ~/obsidian
 alias github="open https://github.com/dbsherry890"
 
 alias rm='rm -i'
+
+# ── C ─────────────────────────────────────────────────────────────────────────
+# CFLAGS is the variable make's built-in C rule reads for compiler flags.
+# Exporting it means every `make <name>` (with no Makefile) uses these flags.
+#   -Wall -Wextra -> most useful warnings on
+#   -std=c17      -> modern C standard
+#   -g            -> debug info for lldb/gdb
+export CFLAGS="-Wall -Wextra -std=c17 -g"
+
+# mr = "make & run". Pass the program name with or without .c
+# Usage: mr hello        -> builds hello.c into ./hello, then runs it
+#        mr wc input.txt -> extra args are passed to your program
+mr() {
+  local name="${1%.c}"  # target name, e.g. "hello" (make looks for hello.c)
+  shift                 # remaining args belong to your program
+  make "$name" && "./$name" "$@"  # only run if the build succeeded
+}

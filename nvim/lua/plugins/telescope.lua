@@ -23,6 +23,10 @@ return {
       },
     },
     pickers = {
+      find_files = {
+        hidden = true,
+        file_ignore_patterns = { '^%.git/' },
+      },
       planets = {
         show_pluto = true,
         show_moon = true,
@@ -45,6 +49,9 @@ return {
     keymap('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     keymap('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     keymap('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+    keymap('n', '<leader>sF', function()
+      builtin.find_files { hidden = true, no_ignore = true }
+    end, { desc = '[S]earch all [F]iles (incl. gitignored)' })
     keymap('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
     keymap('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
     keymap('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
