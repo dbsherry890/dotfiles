@@ -27,7 +27,7 @@ alias tn='tmux new -s'
 
 # ── tldr ─────────────────────────────────────────────────────────────────────
 export PAGER="bat -l md"
-alias tldr='tldr --pager'
+# alias tldr='tldr --pager'
 
 # ── Misc ──────────────────────────────────────────────────────────────────────
 alias c="clear"

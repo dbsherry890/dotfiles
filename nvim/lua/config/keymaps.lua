@@ -71,6 +71,7 @@ keymap('n', '<leader>p', ':put +<CR>', { noremap = true, silent = true })
 -- undo word by word
 -- keymap('i', '<space>', '<C-G>u<space>', opts)
 
+
 keymap('n', '+', '<C-A>', opts)
 keymap('n', '-', '<C-X>', opts)
 
@@ -92,5 +93,7 @@ end, { desc = 'Dashboard' })
 vim.keymap.set('n', 'gx', function()
   local url = vim.fn.expand '<cfile>'
   url = url:gsub('^[\'"]', ''):gsub('[\'"]$', '')
-  vim.fn.jobstart({ 'xdg-open', url }, { detach = true })
+  local opener = vim.fn.has 'wsl' == 1 and 'explorer.exe' or vim.fn.has 'mac' == 1 and 'open' or 'xdg-open'
+  vim.fn.jobstart({ opener, url }, { detach = true })
 end, { desc = 'Open URL under cursor' })
+
