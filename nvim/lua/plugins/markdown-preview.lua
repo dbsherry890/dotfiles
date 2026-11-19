@@ -16,19 +16,13 @@ return {
   -- `init` runs at startup, before the plugin loads, which is when
   -- markdown-preview reads its g: settings.
   init = function()
-    -- Use a custom function to open the preview URL
-    vim.g.mkdp_browserfunc = 'OpenMarkdownPreview'
+    -- Open the preview URL with vim.ui.open (handles mac / WSL / linux)
     vim.cmd [[
       function! OpenMarkdownPreview(url) abort
-        if has('wsl')
-          silent execute '!wslview ' . a:url
-        elseif has('mac')
-          silent execute '!open ' . a:url
-        else
-          silent execute '!xdg-open ' . a:url
-        endif
+        call v:lua.vim.ui.open(a:url)
       endfunction
     ]]
+    vim.g.mkdp_browserfunc = 'OpenMarkdownPreview'
 
     -- Auto-close the preview when you leave the markdown buffer
     vim.g.mkdp_auto_close = 1

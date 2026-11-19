@@ -13,7 +13,6 @@ Config files for Mac (personal) and WSL Ubuntu (Windows work environment).
 | Zsh | [shell/.zshrc](shell/.zshrc) | Mac |
 | VSCode | [vscode/](vscode/) | Mac (copy to Windows by hand) |
 | Bash | [shell/.bashrc](shell/.bashrc) | WSL |
-| Work-only config | [shell/work.sh](shell/work.sh) | WSL |
 
 ## Setup
 

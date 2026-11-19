@@ -101,8 +101,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = -3 ] && echo terminal || ech
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
+if [ -f ~/.shellrc ]; then
+    . ~/.shellrc
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -125,9 +125,11 @@ alias la='ls -a '
 alias ll='la -l '
 alias sudo='sudo '
 alias bashrc="nvim ~/.bashrc"
-alias bat=batcat
+command -v batcat >/dev/null 2>&1 && alias bat=batcat
 
-source ~/.local/share/bashrc/ssh-agent.sh
+export EDITOR="nvim"
+export VISUAL="nvim"
+export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34"
 
 export PAGER=less
 export LESS=-FRX
@@ -166,8 +168,72 @@ eval "$(fzf --bash)"
 
 export SKILL_CHAR_BUDGET=100000
 
-# Work-only config (linked by install.sh on WSL)
-[ -f ~/.work.sh ] && . ~/.work.sh
+# ── Windows interop (WSL) ─────────────────────────────────────────────────────
+alias pbcopy='clip.exe'
+alias win="cd /mnt/c/Users/DSHERRY/"
+alias winopen="explorer.exe"
+alias mdview='f() { pandoc "$1" -o /tmp/preview.html && explorer.exe "$(wslpath -w /tmp/preview.html)"; }; f'
+alias code="/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin/code"
+alias onedrive='cd "/mnt/c/Users/DSHERRY/OneDrive - ERCOT"; ls'
+# wslview isn't always installed; fall back to explorer.exe (opens default Windows browser)
+if command -v wslview >/dev/null 2>&1; then
+  export BROWSER=wslview
+else
+  export BROWSER=explorer.exe
+fi
+
+function removemobaxtermstupidpath() {
+  local IFS=':'
+  local newpath=""
+  read -r -a pathelements <<< "$PATH"
+  for pathelement in "${pathelements[@]}"; do
+    if [[ "$pathelement" != /c/* ]] && [[ "$pathelement" != /mnt/c/* ]] && [[ "$pathelement" != *games* ]]; then
+      newpath="$newpath:$pathelement"
+    fi
+  done
+  newpath="${newpath#:}"
+  echo "$newpath"
+}
+export PATH=$(removemobaxtermstupidpath)
+export PATH="$PATH:/mnt/c/Windows/System32" # added for copying support in tmux
+export PATH="$PATH:/mnt/c/Windows" # to find programs like explorer.exe
+
+# ── Work shortcuts ────────────────────────────────────────────────────────────
+alias ercot="cd ~/obsidian/ERCOT; nvim"
+alias dc='docker compose'
+alias uve='unset VIRTUAL_ENV'
+
+function update_python_ca_certs() {
+  for cacert in $(2>/dev/null find -name cacert.pem | grep certifi/cacert.pem); do
+    for cert in /usr/share/ca-certificates/ercot/*; do
+      alias=${cert##*/}; alias=${alias%.pem}; alias=${alias%.crt}
+      echo "# $alias" | tee -a $cacert
+      cat "$cert" | tee -a $cacert
+    done
+  done
+}
+
+# ── SSH keys ──────────────────────────────────────────────────────────────────
+eval $(keychain --eval --quiet --agents ssh ~/.ssh/id_ed25519 ~/.ssh/id_ed25519_github_work ~/.ssh/id_ed25519_personal)
+
+# ── Corporate CA bundle ───────────────────────────────────────────────────────
+# Route language runtimes to the system CA bundle (which contains the ERCOT chain).
+export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
+
+# ── Oracle ────────────────────────────────────────────────────────────────────
+export TNS_ADMIN=/home/dsherry/oracle/tnsnames.ora
+
+# ── MCP / Jira ────────────────────────────────────────────────────────────────
+export JIRA_BASE_URL="https://jira.ercot.com/"
+export MCP_TOOL_PACKAGE="change_coordinator"
+
+# ── Databricks ────────────────────────────────────────────────────────────────
+export DATABRICKS_HOST="adb-4328769614695144.4.azuredatabricks.net"
+alias d='/usr/local/bin/databricks'
+alias data='/usr/local/bin/databricks'
+command -v databricks >/dev/null 2>&1 && eval "$(databricks completion bash)"
 
 # Untracked per-machine overrides
 [ -f ~/.localrc ] && . ~/.localrc

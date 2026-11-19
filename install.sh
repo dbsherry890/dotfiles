@@ -38,6 +38,7 @@ echo "Setting up shared dotfiles..."
 
 link "$DOTFILES/git/.gitconfig" "$HOME/.gitconfig"
 link "$DOTFILES/nvim" "$HOME/.config/nvim"
+link "$DOTFILES/shell/.shellrc" "$HOME/.shellrc"
 link "$DOTFILES/shell/.aliases" "$HOME/.aliases"
 link "$DOTFILES/shell/.tmux.conf" "$HOME/.tmux.conf"
 
@@ -62,7 +63,6 @@ case "$PLATFORM" in
         echo ""
         echo "Setting up WSL (work)..."
         link "$DOTFILES/shell/.bashrc" "$HOME/.bashrc"
-        link "$DOTFILES/shell/work.sh" "$HOME/.work.sh"
         if [ -f "$DOTFILES/git/work.gitconfig" ]; then
             link "$DOTFILES/git/work.gitconfig" "$HOME/.gitconfig.local"
         fi

@@ -1,0 +1,22 @@
+# Shared base for bash and zsh. Linked to ~/.shellrc by install.sh and
+# sourced by both ~/.bashrc and ~/.zshrc. Must work in both shells.
+
+# ── Pagers ───────────────────────────────────────────────────────────────────
+export PAGER="bat -l md"
+export MANPAGER="less -R"
+
+# Colors in less / man
+export LESS_TERMCAP_mb=$'\e[1;31m'
+export LESS_TERMCAP_md=$'\e[1;31m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[1;33;44m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[4;1;32m'
+export LESS_TERMCAP_mr=$'\e[7m'
+export LESS_TERMCAP_mh=$'\e[2m'
+# Linux groff emits SGR escapes that bypass LESS_TERMCAP; force overstrikes instead
+export GROFF_NO_SGR=1
+
+# ── Aliases ──────────────────────────────────────────────────────────────────
+[ -f "$HOME/.aliases" ] && . "$HOME/.aliases"
