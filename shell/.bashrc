@@ -72,25 +72,8 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias l='ll'
-alias la='ls -A'
-alias src='source .venv/bin/activate'
-alias gs='git status'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -119,12 +102,6 @@ fi
 # Created by `pipx` on 2025-09-12 14:42:00
 export PATH="$PATH:/home/dsherry/.local/bin"
 
-alias grep='grep --color=auto '
-alias ls='ls -1 -FhNv --color=auto --group-directories-first '
-alias la='ls -a '
-alias ll='la -l '
-alias sudo='sudo '
-alias bashrc="nvim ~/.bashrc"
 alias bat=batcat
 
 source ~/.local/share/bashrc/ssh-agent.sh
@@ -154,7 +131,7 @@ export PATH=$PATH:/usr/lib/go-1.22/bin:$GOPATH/bin
 
 export PATH="/home/linuxbrew/.linuxbrew/opt/postgresql@17/bin:$PATH"
 
-export CDPATH="$HOME/1_Projects/"
+export CDPATH=".:$HOME:$HOME/1_Projects/"
 
 # Secrets (JIRA_TOKEN, etc.) - not tracked in dotfiles repo, must exist per-machine
 [ -f ~/.config/secrets/env.sh ] && source ~/.config/secrets/env.sh
@@ -166,8 +143,3 @@ eval "$(fzf --bash)"
 
 export SKILL_CHAR_BUDGET=100000
 
-# Work-only config (linked by install.sh on WSL)
-[ -f ~/.work.sh ] && . ~/.work.sh
-
-# Untracked per-machine overrides
-[ -f ~/.localrc ] && . ~/.localrc

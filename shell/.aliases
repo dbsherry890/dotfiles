@@ -19,11 +19,13 @@ alias gc="git commit -m "
 alias gl="git log --oneline --decorate --all --graph"
 alias gp="git push"
 alias gs="git status"
+alias gco="git checkout"
 
 # ── Tmux ─────────────────────────────────────────────────────────────────────
 alias ta='tmux attach -t'
 alias tls='tmux ls'
 alias tn='tmux new -s'
+alias tk='tmux kill-session -t'
 
 # ── tldr ─────────────────────────────────────────────────────────────────────
 export PAGER="bat -l md"
@@ -37,16 +39,15 @@ alias e="exit"
 alias grep="grep --color=auto"
 alias py=python3
 alias src="source .venv/bin/activate"
-# alias copilot="copilot -i 'Talk like a caveman, and use karpathy guidelines'"
 alias d="docker"
 alias k="kubectl"
 #
 # ── Obsidian ──────────────────────────────────────────────────────────────────────
-alias notes="cd ~/obsidian && nvim" # subshell so you don't stay in ~/obsidian
+alias learn="cd ~/obsidian/learning/ && nvim"
+alias notes="cd ~obsidian/ercotnotes/ && nvim"
 
 # ── Launch ──────────────────────────────────────────────────────────────────────
 alias github="open https://github.com/dbsherry890"
-
 alias rm='rm -i'
 
 # ── C ─────────────────────────────────────────────────────────────────────────
