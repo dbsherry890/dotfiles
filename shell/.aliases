@@ -42,13 +42,20 @@ alias src="source .venv/bin/activate"
 alias d="docker"
 alias k="kubectl"
 #
-# ── Obsidian ──────────────────────────────────────────────────────────────────────
+# ── Obsidian ──────────────────────────────────────────────────────────────────
 alias learn="cd ~/obsidian/learning/ && nvim"
-alias notes="cd ~obsidian/ercotnotes/ && nvim"
+alias notes="cd ~/obsidian/ercotnotes/ && nvim"
 
-# ── Launch ──────────────────────────────────────────────────────────────────────
+# ── Launch ────────────────────────────────────────────────────────────────────
 alias github="open https://github.com/dbsherry890"
 alias rm='rm -i'
+
+# ── OpenShift ─────────────────────────────────────────────────────────────────
+alias ocd='oc config use-context aia-dev'
+alias oct='oc config use-context aia-test'
+alias ocp='oc config use-context aia-prod-taylor'
+alias occ='oc config current-context'
+alias ocgc='oc config get-contexts'
 
 # ── C ─────────────────────────────────────────────────────────────────────────
 # CFLAGS is the variable make's built-in C rule reads for compiler flags.
