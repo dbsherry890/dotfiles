@@ -71,6 +71,7 @@ keymap('n', '<leader>p', ':put +<CR>', { noremap = true, silent = true })
 -- undo word by word
 -- keymap('i', '<space>', '<C-G>u<space>', opts)
 
+
 keymap('n', '+', '<C-A>', opts)
 keymap('n', '-', '<C-X>', opts)
 
@@ -97,3 +98,4 @@ vim.keymap.set('n', 'gx', function()
   url = url:gsub('^[\'"]', ''):gsub('[\'"]$', '')
   vim.ui.open(url) -- picks open / xdg-open / wslview per platform
 end, { desc = 'Open URL under cursor' })
+
