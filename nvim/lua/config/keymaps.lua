@@ -92,7 +92,6 @@ vim.keymap.set('n', '<leader>sd', function()
   require('snacks').dashboard()
 end, { desc = 'Dashboard' })
 
--- gx was adding extra parentheses
 vim.keymap.set('n', 'gx', function()
   local url = vim.fn.expand '<cfile>'
   url = url:gsub('^[\'"]', ''):gsub('[\'"]$', '')
