@@ -40,12 +40,11 @@ alias grep="grep --color=auto"
 alias py=python3
 alias src="source .venv/bin/activate"
 alias d="docker"
-alias dc="docker compose"
 alias k="kubectl"
 #
 # ── Obsidian ──────────────────────────────────────────────────────────────────────
 alias learn="cd ~/obsidian/learning/ && nvim"
-alias notes="cd ~/obsidian/ercotnotes/ && nvim"
+alias notes="cd ~obsidian/ercotnotes/ && nvim"
 
 # ── Launch ──────────────────────────────────────────────────────────────────────
 alias github="open https://github.com/dbsherry890"
